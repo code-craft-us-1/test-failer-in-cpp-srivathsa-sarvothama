@@ -1,10 +1,10 @@
-#include <stdio.h>
+#include <iostream>
 #include <assert.h>
 
 int alertFailureCount = 0;
 
 int networkAlertStub(float celcius) {
-    printf("ALERT: Temperature is %.1f celcius.\n", celcius);
+    std::cout << "ALERT: Temperature is " << celcius << " celcius.\n";
     // Return 200 for ok
     // Return 500 for not-ok
     // stub always succeeds and returns 200
@@ -26,7 +26,7 @@ void alertInCelcius(float farenheit) {
 int main() {
     alertInCelcius(400.5);
     alertInCelcius(303.6);
-    printf("%d alerts failed.\n", alertFailureCount);
-    printf("All is well (maybe!)\n");
+    std::cout << alertFailureCount << " alerts failed.\n";
+    std::cout << "All is well (maybe!)\n";
     return 0;
 }
