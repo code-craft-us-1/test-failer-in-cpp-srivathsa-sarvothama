@@ -8,7 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+    - name: setup and run linter
+      run: |
+        pip install cpplint
+        cpplint  --filter=-legal --linelength=100 *.cpp
 
     - name: tshirts fail
       run: |
