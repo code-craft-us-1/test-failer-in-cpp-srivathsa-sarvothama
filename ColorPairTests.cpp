@@ -35,8 +35,8 @@ void ColorPairTests::testColorNumberRepeated() {
     }
 
     if (!colorNumbers.empty()) {
-        for (long unsigned int i = 0; i < colorNumbers.size(); i++) {
-            for (long unsigned int j = (i + 1); j < colorNumbers.size(); j++) {
+        for (std::size_t i = 0; i < colorNumbers.size(); i++) {
+            for (std::size_t j = (i + 1); j < colorNumbers.size(); j++) {
                 assert(colorNumbers[i] != colorNumbers[j]);
             }
         }
