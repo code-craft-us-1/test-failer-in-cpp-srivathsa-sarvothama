@@ -1,21 +1,18 @@
-#include <assert.h>
-#include <iostream>
+#include "ColorPairPrinter.h"
+#include "ColorPairs.h"
+#include "ColorPairTests.h"
 
-int printColorMap() {
-    const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
-    const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-    int i = 0, j = 0;
-    for (i = 0; i < 5; i++) {
-        for (j = 0; j < 5; j++) {
-            std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
-        }
-    }
-    return i * j;
-}
+const char* majorColor[] = { "White", "Red", "Black", "Yellow", "Violet" };
+const char* minorColor[] = { "Blue", "Orange", "Green", "Brown", "Slate" };
+
+unsigned int numberOfMajorColors = sizeof(majorColor) / sizeof(majorColor[0]);
+unsigned int numberOfMinorColors = sizeof(minorColor) / sizeof(minorColor[0]);
+
 
 int main() {
-    int result = printColorMap();
-    assert(result == 25);
-    std::cout << "All is well (maybe!)\n";
+    ColorPairPrinter::printColorMap();
+    ColorPairTests::testNumberOfPairs();
+    ColorPairTests::testMinorColorRepeatedInConsecutiveLines();
+    ColorPairTests::testColorNumberRepeated();
     return 0;
 }
