@@ -4,9 +4,9 @@
 #include <cassert>
 #include <vector>
 #include <sstream>
+#include <string>
 
-void ColorPairTests::testMinorColorRepeatedInConsecutiveLines()
-{
+void ColorPairTests::testMinorColorRepeatedInConsecutiveLines() {
     std::istringstream stream(ColorPairFormatter::formatColorMap());
     std::string line, prev = "";
     while (std::getline(stream, line)) {
@@ -18,12 +18,10 @@ void ColorPairTests::testMinorColorRepeatedInConsecutiveLines()
             assert(minorColor != prev);
             prev = minorColor;
         }
-
     }
 }
 
-void ColorPairTests::testColorNumberRepeated()
-{
+void ColorPairTests::testColorNumberRepeated() {
     std::istringstream stream(ColorPairFormatter::formatColorMap());
     std::string line, prev = "";
     std::vector<std::string> colorNumbers;
@@ -38,18 +36,15 @@ void ColorPairTests::testColorNumberRepeated()
 
     if (!colorNumbers.empty())
     {
-        for (int i = 0; i < colorNumbers.size(); i++)
-        {
-            for (int j = i + 1; j < colorNumbers.size(); j++)
-            {
+        for (int i = 0; i < colorNumbers.size(); i++) {
+            for (int j = i + 1; j < colorNumbers.size(); j++) {
                 assert(colorNumbers[i] != colorNumbers[j]);
             }
         }
     }
 }
 
-void ColorPairTests::testNumberOfPairs()
-{
+void ColorPairTests::testNumberOfPairs() {
     std::istringstream stream(ColorPairFormatter::formatColorMap());
     std::string line, prev = "";
     unsigned int count = 0;
