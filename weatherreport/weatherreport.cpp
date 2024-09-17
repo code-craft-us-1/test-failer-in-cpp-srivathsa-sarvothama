@@ -1,9 +1,3 @@
-#include <cassert>
-#include <iostream>
-#include <ostream>
-#include <string>
-
-#include "IWeatherSensor.h"
 
 #include "WeatherReportTests.h"
 

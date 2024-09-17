@@ -1,7 +1,6 @@
 #include <cassert>
 #include <iostream>
 #include <string>
-
 #include "SensorStubLowWindSpeedRain.h"
 #include "SensorStubStormyRain.h"
 #include "WeatherReportTests.h"
