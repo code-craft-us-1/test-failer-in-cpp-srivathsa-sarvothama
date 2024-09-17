@@ -11,7 +11,7 @@ jobs:
     - name: setup and run linter
       run: |
         pip install cpplint
-        cpplint  --filter=-legal --linelength=100 *.cpp
+        cpplint  --filter=-legal --linelength=100 ./*/*.cpp 
 
     - name: tshirts fail
       run: |
