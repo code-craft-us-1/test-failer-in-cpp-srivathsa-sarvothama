@@ -11,19 +11,19 @@ jobs:
     - name: setup and run linter
       run: |
         pip install cpplint
-        cpplint  --filter=-legal --linelength=100 *.cpp
+        cpplint  --filter=-legal --linelength=100 ./*/*.cpp 
 
-    - name: tshirts fail
+    - name: tshirts tests
       run: |
-        g++ -Wall -Wextra -Werror tshirts.cpp -o tshirts.out
-        bash .github/workflows/expectfail.sh ./tshirts.out
+        g++ -Wall -Wextra -Werror ./tshirts/*.cpp -o tshirts.out
+        ./tshirts.out
 
-    - name: misaligned fail
+    - name: misaligned tests
       run: |
-        g++ -Wall -Wextra -Werror misaligned.cpp -o misaligned.out
-        bash .github/workflows/expectfail.sh ./misaligned.out
+        g++ -Wall -Wextra -Werror ./misaligned/*.cpp -o misaligned.out
+        ./misaligned.out
 
-    - name: alerter fail
+    - name: alerter tests
       run: |
-        g++ -Wall -Wextra -Werror weatherreport.cpp -o weatherreport.out
-        bash .github/workflows/expectfail.sh ./weatherreport.out
+        g++ -Wall -Wextra -Werror ./weatherreport/*.cpp -o weatherreport.out
+        ./weatherreport.out
