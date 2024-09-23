@@ -1,20 +1,19 @@
 #include <cassert>
 #include <iostream>
 #include <string>
-#include "SensorStubLowWindSpeedRain.h"
-#include "SensorStubStormyRain.h"
+#include "SensorStub.h"
 #include "WeatherReportTests.h"
 #include "ReportGenerator.h"
 
 void WeatherReportTests::TestRainy() {
-    SensorStubStormyRain sensor;
+    SensorStub sensor(72,70,26,52);
     std::string report = ReportGenerator::GetReport(sensor);
     std::cout << report << std::endl;
     assert(report.find("rain") != std::string::npos);
 }
 
 void WeatherReportTests::TestHighPrecipitationAndLowWindspeed() {
-    SensorStubLowWindSpeedRain sensor;
+    SensorStub sensor(72, 70, 26, 25);
     std::string report = ReportGenerator::GetReport(sensor);
     std::cout << report << std::endl;
     assert(report.find("rain") != std::string::npos);

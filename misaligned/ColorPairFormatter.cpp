@@ -9,10 +9,14 @@ std::string ColorPairFormatter::formatColorMap() {
     unsigned int i = 0, j = 0;
     for (i = 0; i < numberOfMajorColors; i++) {
         for (j = 0; j < numberOfMinorColors; j++) {
-            ss << std::setw(3) << i * 5 + j << " | ";
+            ss << std::setw(3) << getColorPairNumber(i,j) << " | ";
             ss << std::setw(7) << majorColor[i] << " | ";
-            ss << std::setw(7) << minorColor[i] << "\n";
+            ss << std::setw(7) << minorColor[j] << "\n";
         }
     }
     return ss.str();
+}
+
+int ColorPairFormatter::getColorPairNumber(int majColorIndex, int minorColorIndex) {
+    return (majColorIndex * numberOfMinorColors) + (minorColorIndex+1);
 }
